@@ -38,37 +38,48 @@ cufinder/
 
 ## Running locally
 
-**Backend** (from `backend/`):
+You need **two terminals** running at the same time: one for the backend, one for the frontend.
+
+### 1. Backend (from `backend/`)
 
 > **Python version:** Requires Python 3.11–3.13. Python 3.14+ is not supported yet due to `pydantic-core`.
 
 ```bash
-python3.11 -m venv .venv
-source .venv/bin/activate        # Windows: .venv\Scripts\activate
+python3.11 -m venv venv
+source venv/bin/activate        # Windows: venv\Scripts\activate
 pip install -r requirements.txt
-cp .env.example .env             # fill in your values
-python seed.py                   # seed locations and admin accounts
+cp .env.example .env
+```
+
+Edit `.env` and fill in the required values — at minimum `MONGODB_URI` (MongoDB Atlas connection string), `SESSION_SECRET`, and your Google OAuth credentials.
+
+```bash
 flask --app app run --debug --port 5001
 ```
 
-**Web frontend** (from `frontend/`):
+### 2. Web frontend (from `frontend/`)
 
 ```bash
 npm install
-cp .env.example .env.local       # set VITE_USE_MOCK=false for real backend
+cp .env.example .env.local
+```
+
+In `.env.local`, set `VITE_USE_MOCK=false` to connect to the real backend.
+
+```bash
 npm run dev
 ```
 
 Open http://localhost:5173. The Vite dev proxy forwards `/api/*` to the Flask backend on port 5001.
 
-**Mobile app** (from `mobile/`):
+### Mobile app (from `mobile/`)
 
 ```bash
 npm install
 npx expo start
 ```
 
-Scan the QR code with the Expo Go app on your phone. The mobile app connects to the deployed backend at `cufinder-backend.onrender.com` by default, so no local server is required to run it.
+Scan the QR code with the Expo Go app on your phone. The mobile app connects to the deployed backend at `cufinder-backend.onrender.com` by default, so no local backend is required.
 
 ## Environment variables
 
