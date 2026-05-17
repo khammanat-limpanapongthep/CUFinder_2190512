@@ -1,0 +1,150 @@
+.page {
+  max-width: 640px;
+  margin: 0 auto;
+}
+
+.header {
+  margin-bottom: var(--sp-5);
+}
+
+.header h1 {
+  margin-bottom: var(--sp-2);
+}
+
+.subtitle {
+  color: var(--color-text-muted);
+  font-size: var(--fs-sm);
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-4);
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  padding: var(--sp-5) var(--sp-4);
+  box-shadow: var(--shadow-sm);
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-2);
+}
+
+.label {
+  font-size: var(--fs-sm);
+  font-weight: 600;
+  color: var(--color-text);
+}
+
+.required {
+  color: var(--color-brand);
+}
+
+.optional {
+  color: var(--color-text-muted);
+  font-weight: 400;
+}
+
+.hint {
+  margin: 0 0 var(--sp-1) 0;
+  font-size: var(--fs-xs);
+  color: var(--color-text-muted);
+}
+
+.input,
+.textarea {
+  width: 100%;
+  padding: 10px 12px;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  background: var(--color-bg);
+  color: var(--color-text);
+}
+
+.textarea {
+  resize: vertical;
+  min-height: 88px;
+  font-family: inherit;
+}
+
+.input:focus,
+.textarea:focus {
+  outline: none;
+  border-color: var(--color-brand);
+  box-shadow: 0 0 0 3px var(--color-brand-light);
+}
+
+.inputBelow {
+  margin-top: var(--sp-2);
+}
+
+.row {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--sp-4);
+}
+
+.error {
+  background: var(--color-error-bg);
+  color: var(--color-error);
+  padding: var(--sp-2) var(--sp-3);
+  border-radius: var(--radius-sm);
+  font-size: var(--fs-sm);
+  margin: 0;
+}
+
+.actions {
+  display: flex;
+  gap: var(--sp-3);
+  margin-top: var(--sp-2);
+}
+
+.cancel,
+.submit {
+  flex: 1;
+  padding: 12px;
+  border-radius: var(--radius-md);
+  font-weight: 600;
+  font-size: var(--fs-md);
+  cursor: pointer;
+  border: 1px solid transparent;
+}
+
+.cancel {
+  background: transparent;
+  border-color: var(--color-border);
+  color: var(--color-text-muted);
+}
+
+.cancel:hover:not(:disabled) {
+  border-color: var(--color-brand);
+  color: var(--color-brand-dark);
+}
+
+.submit {
+  background: var(--color-brand);
+  color: var(--color-text-inverse);
+  border: none;
+}
+
+.submit:hover:not(:disabled) {
+  background: var(--color-brand-dark);
+}
+
+.submit:disabled,
+.cancel:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+@media (min-width: 600px) {
+  .row {
+    grid-template-columns: 1fr 1fr;
+  }
+  .form {
+    padding: var(--sp-6);
+  }
+}
