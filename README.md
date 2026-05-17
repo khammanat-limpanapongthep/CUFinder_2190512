@@ -40,8 +40,10 @@ cufinder/
 
 **Backend** (from `backend/`):
 
+> **Python version:** Requires Python 3.11–3.13. Python 3.14+ is not supported yet due to `pydantic-core`.
+
 ```bash
-python -m venv .venv
+python3.11 -m venv .venv
 source .venv/bin/activate        # Windows: .venv\Scripts\activate
 pip install -r requirements.txt
 cp .env.example .env             # fill in your values
